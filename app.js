@@ -5,12 +5,16 @@ const path = require('path');
 const express  = require('express');
 const csrf = require('csurf');
 const expressSession = require('express-session');
+
 //included files
 const authRoutes = require('./routes/auth.route');
 const db = require('./data/database');
 const addCsrfTokenMiddleware = require('./middlewares/csrf-token');
 const errorHandlerMiddleware = require('./middlewares/error-handler');
 const createSessionConfig = require('./config/session');
+const productRoutes = require('./routes/products.route');
+const baseRoutes = require('./routes/base.route');
+const checkAuthStatusMiddleware = require('./middlewares/check-auth');
 
 const app = express();
 
@@ -26,8 +30,12 @@ app.use(expressSession(sessionConfig))
 app.use(csrf()); //This will executed as function and return actual middleware
 app.use(addCsrfTokenMiddleware)
 
+app.use(errorHandlerMiddleware);
+app.use(checkAuthStatusMiddleware)
+
+app.use(baseRoutes);
 app.use(authRoutes);
-app.use(errorHandlerMiddleware)
+app.use(productRoutes);
 
 db.connectToDatabase().then(function() {
     app.listen(3000);

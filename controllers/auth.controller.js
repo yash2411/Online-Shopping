@@ -34,7 +34,9 @@ async function signup(req, res, next) {
         postal: req.body.postal,
         city: req.body.city
     }
-    if (!validation.userDetailsAreValid(req.body.email, req.body.password, req.body.fullname, req.body.street, req.body.postal, req.body.city) || !validation.emailConfirmed(req.body.email, req.body['confirm-email'])) {
+    
+    if (!validation.userDetailsAreValid(req.body.email, req.body.password, req.body.fullname, req.body.street, req.body.postal, req.body.city) || !validation.emailIsConfirmed(req.body.email, req.body['confirm-email'])) {
+        
         sessionFlash.flashDataToSession(req, {
             errorMessage: 'Please check your input', ...enteredData
         }, function() {

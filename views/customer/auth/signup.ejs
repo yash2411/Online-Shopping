@@ -16,39 +16,39 @@
             <input type="hidden" value="<%= locals.csrfToken %>" name="_csrf">
             <p>
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required value= "<%= inputData.email %>">
+                <input type="email" id="email" name="email" value= "<%= inputData.email %>">
             </p>
 
             <p>
                 <label for="confirm-email">Confirm Email</label>
-                <input type="email" id="confirm-email" name="confirm-email" required value="<%= inputData.confirmEmail %>">
+                <input type="email" id="confirm-email" name="confirm-email"  value="<%= inputData.confirmEmail %>">
             </p>
 
             <p>
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required minlength="6" value="<%= inputData.password %>">
+                <input type="password" id="password" name="password" value="<%= inputData.password %>">
             </p>
 
             <hr>
 
             <p>
                 <label for="fullname">Fullname</label>
-                <input type="text" id="fullname" name="fullname" required value="<%= inputData.fullname %>">
+                <input type="text" id="fullname" name="fullname" value="<%= inputData.fullname %>">
             <p
 
             <p>
                 <label for="street">Street</label>
-                <input type="text" id="street" name="street" required value="<%= inputData.street %>">
+                <input type="text" id="street" name="street" value="<%= inputData.street %>">
             </p>
 
             <p>
                 <label for="postal">Postal Code</label>
-                <input type="text" id="postal" name="postal" required minlength="5" maxlength="5" value="<%= inputData.postal %>">
+                <input type="text" id="postal" name="postal" value="<%= inputData.postal %>">
             </p>
 
             <p>
                 <label for="city">City</label>
-                <input type="text" id="city" name="city" required value="<%= inputData.city %>">
+                <input type="text" id="city" name="city" value="<%= inputData.city %>">
             </p>
 
             <button class="btn">Create Account</button>

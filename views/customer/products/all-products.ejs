@@ -4,7 +4,19 @@
 <%- include('../../shared/includes/header') %> 
     <main>
         <h1>All Products</h1>
-        <p>List of products</p>
+        <% for (const product of products) { %>
+            <li>
+                <article class="product-item">
+                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                    <div class="product-item-content">
+                        <h2><%= product.title %></h2>
+                    </div>
+                    <div class="product-item-action">
+                        <a class="btn btn-alt" href="/products/<%= product.id %>">View Details</a>
+                    </div>
+                </article>
+            </li>
+        <% } %>
     </main>
 
 <%- include('../../shared/includes/footer') %> 

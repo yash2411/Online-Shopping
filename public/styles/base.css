@@ -98,3 +98,11 @@ a{
   border-color: var(--color-primary-700);
 }
 
+.btn-alt{
+  background-color: transparent;
+  color: var(--color-primary-500);
+}
+.btn:active,
+.btn-alt:hover{
+  background-color: var(--color-primary-500-bg);
+}
